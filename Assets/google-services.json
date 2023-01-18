@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "890837534032",
+    "project_id": "unity-pong-sample-backen-ad308",
+    "storage_bucket": "unity-pong-sample-backen-ad308.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:890837534032:android:7376647d5ac76048551855",
+        "android_client_info": {
+          "package_name": "com.miminzku.firebasepong"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "890837534032-av9b1ups54v728kqnaiveruirsapjq73.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyA17qM-FI3eM9uqFbeTgj260jqTsM3XdBo"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "890837534032-av9b1ups54v728kqnaiveruirsapjq73.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
