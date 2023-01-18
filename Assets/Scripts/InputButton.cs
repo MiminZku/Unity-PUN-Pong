@@ -4,6 +4,7 @@ using UnityEngine;
 public class InputButton : MonoBehaviour
 {
     public static float VerticalInput;
+    public static float HorizontalInput;
 
     public enum State
     {
@@ -35,7 +36,9 @@ public class InputButton : MonoBehaviour
     private void GetKeyboardInput()
     {
         float v = Input.GetAxisRaw("Vertical");
+        float h = Input.GetAxisRaw("Horizontal");
         VerticalInput = v;
+        HorizontalInput= h;
     }
 
     public void OnMoveUpButtonPressed()

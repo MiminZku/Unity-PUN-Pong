@@ -2,6 +2,7 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
+using Hashtable = ExitGames.Client.Photon.Hashtable;
 
 public class GameManager : MonoBehaviourPunCallbacks
 {
@@ -21,17 +22,33 @@ public class GameManager : MonoBehaviourPunCallbacks
     public Transform[] spawnPositions;
     public GameObject playerPrefab;
     public GameObject ballPrefab;
-
     private int[] playerScores;
+    public bool isPlayersMoving;
 
     private void Start()
     {
         playerScores = new[] {0,0};
         SpawnPlayer();
 
-        if(PhotonNetwork.IsMasterClient)
+        //if(PhotonNetwork.IsMasterClient)
+        //{
+        //    SpawnBall();
+        //}
+    }
+    private void Update()
+    {
+        if (PhotonNetwork.PlayerList.Length < 2) return;
+        foreach (Photon.Realtime.Player player in PhotonNetwork.PlayerList)
         {
-            SpawnBall();
+            Hashtable cp = player.CustomProperties;
+            Debug.Log(cp["isMoveReady"]);
+            if (!(bool)cp["isMoveReady"]) return;
+        }
+        if (isPlayersMoving) return;
+        isPlayersMoving = true;
+        foreach (GameObject player in GameObject.FindGameObjectsWithTag("Player"))
+        {
+            player.GetComponent<Player>().MoveBoth();
         }
     }
 
@@ -39,7 +56,6 @@ public class GameManager : MonoBehaviourPunCallbacks
     {
         var localPlayerIndex = PhotonNetwork.LocalPlayer.ActorNumber - 1;
         var spawnPosition = spawnPositions[localPlayerIndex % spawnPositions.Length];
-
         PhotonNetwork.Instantiate(playerPrefab.name, spawnPosition.position, spawnPosition.rotation);
     }
 

@@ -57,7 +57,7 @@ public class LobbyManager : MonoBehaviourPunCallbacks
     
     public override void OnJoinedRoom()
     {
-        connectionInfoText.text = "Connected woth room.";
+        connectionInfoText.text = "Connected with room.";
         // SceneManager.LoadScene(); -> 나만 넘어가고 다른 플레이어는 안넘어가기 때문에 안됨
         PhotonNetwork.LoadLevel("Main");
     }
