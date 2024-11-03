@@ -125,7 +125,7 @@ public class Player : MonoBehaviourPun
             }
             yield return new WaitForSeconds(0.5f);
         }
-        index= 0;
+        index = 0;
         move = new Move[6];
         currentPosition = transform.position;
         isMoving = false;

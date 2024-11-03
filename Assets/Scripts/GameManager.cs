@@ -15,7 +15,6 @@ public class GameManager : MonoBehaviourPunCallbacks
             return instance;
         }
     }
-
     private static GameManager instance;
 
     public Text scoreText;
